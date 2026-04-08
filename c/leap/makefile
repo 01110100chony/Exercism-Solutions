@@ -1,5 +1,6 @@
 ### If you wish to use extra libraries (math.h for instance),
 ### add their flags here (-lm in our case) in the "LIBS" variable.
+
 LIBS = -lm
 
 ###
@@ -8,7 +9,7 @@ CFLAGS += -g
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -pedantic
-# CFLAGS += -Werror
+CFLAGS += -Werror
 CFLAGS += -Wmissing-declarations
 CFLAGS += -DUNITY_SUPPORT_64 -DUNITY_OUTPUT_COLOR
 
