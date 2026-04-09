@@ -6,33 +6,31 @@
 
 //basically rolling with rand(), organizing array with bubble sort and using the bigger values for the ability point.
 //then casting the modifier into character.constitution , obtaining hitpoints
-int ability(void){
+int ability(void) {
     int d[4];
-    int abilityP = 0;
-     for(int i = 0; i < 4 ; i++){
-        d[i] = rand() % 6;
-     }
-     int maior = d[0];
-     for(int i = 1 ; i < 4 ;i++){
-        if(d[i] > maior){
-            int temp = d[i];
-            d[i] = d[i-1];
-            d[i-1] = temp;
-            maior = temp; 
+    int soma = 0;
+    int menor = 7; 
+
+    for (int i = 0; i < 4; i++) {
+
+        d[i] = (rand() % 6) + 1; 
+        soma += d[i];
+        
+        
+        if (d[i] < menor) {
+            menor = d[i];
         }
-     }
-     for(int i = 0 ; i < 3 ; i++){
-        abilityP += d[i];
-     }
-return abilityP;
+    }
+
+    return soma - menor;
 }
 
 int modifier(int score){
     score -= 10;
     if(score < 0){
-      return floor(score/2.0);
+      return (int)floor(score/2.0);
     }
-    return score/2;
+    return  score/2;
 }
 
 dnd_character_t make_dnd_character(void){
